@@ -10,6 +10,7 @@ import datetime as dt
 import io
 import traceback
 import plotly.graph_objects as go
+from streamlit_autorefresh import st_autorefresh  # ✅ fixes NameError
 
 # ---------------------------------------------------------------
 # CONFIGURATION
@@ -191,3 +192,4 @@ st.caption(f"Updated {dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')} | 
 st.caption("Powered by Sheppard’s Universal Proxy Theory — SunWolf Live Continuum")
 
 st_autorefresh = st.experimental_rerun
+
