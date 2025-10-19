@@ -228,4 +228,14 @@ st.caption("Powered by Sheppard’s Universal Proxy Theory — SunWolf Live Cont
 # ===============================================================
 # REFRESH LOOP
 # ===============================================================
-st_autorefresh(interval=REFRESH_INTERVAL * 1000, key="datarefresh")
+import time
+
+def st_autorefresh(interval=60000, key="datarefresh"):
+    """Safely refresh the Streamlit session every [interval] ms"""
+    now = int(time.time() * 1000)
+    if "last_refresh" not in st.session_state:
+        st.session_state["last_refresh"] = now
+    if now - st.session_state["last_refresh"] >= interval:
+        st.session_state["last_refresh"] = now
+        st.rerun()
+
