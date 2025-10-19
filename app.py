@@ -194,6 +194,9 @@ st.write(f"**Solar Wind Speed:** {solar_speed} km/s, **Density:** {solar_density
 st.caption(f"Updated {dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')} | Feeds: NOAA • NASA • INGV | v6.1")
 st.caption("Powered by Sheppard’s Universal Proxy Theory — SunWolf Live Continuum")
 
-st_autorefresh = st.experimental_rerun
-
-
+# ✅ Correct, Streamlit-compatible autorefresh loop
+def st_autorefresh(interval=60000, key="datarefresh"):
+    """Manual refresh every [interval] ms"""
+    import time
+    time.sleep(interval / 1000)
+    st.experimental_rerun()
