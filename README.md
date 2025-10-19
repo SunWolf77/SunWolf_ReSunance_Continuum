@@ -1,12 +1,13 @@
 <p align="center">
-  <img src="https://github.com/<your-username>/SunWolf_ReSunance_Continuum/assets/logo-sunwolf.png" alt="SunWolf Logo" width="140"/>
+  <img src="![SunWolf](https://github.com/user-attachments/assets/5fba02a8-c99b-4e73-bf11-8421fef905b4)
+" alt="SunWolf Logo" width="140"/>
 </p>
 
 <h1 align="center">🛰️ SUPT :: SunWolf ReSunance Continuum v6.1</h1>
 <h3 align="center">Real-Time Solar–Volcanic Coupling Monitor (Campi Flegrei Focus)</h3>
 
 <p align="center">
-  <a href="https://supt-dashboard-anx3dpczdl7ksbqittqx4t.streamlit.app/">
+  <a href="https://sunwolfresunancecontinuumgit-xeytsacffy8rhz8ovahqme.streamlit.app/">
     <img src="https://img.shields.io/badge/Live-Dashboard%20Online-brightgreen?style=for-the-badge&logo=streamlit">
   </a>
   <a href="https://api.nasa.gov/">
@@ -55,3 +56,25 @@ The current focus is **Campi Flegrei (Italy)**, integrating:
 ### 🧠 SUPT Logic Core
 
 The **Energetic Instability Index (EII)** follows:
+EII = (Md_max * 0.2) + (Md_mean * 0.15) + (Shallow_ratio * 0.4) + (ψₛ * 0.25)
+
+- EII ≥ 0.85 → **ACTIVE** – Collapse Window Initiated  
+- EII ≥ 0.60 → **ELEVATED** – Pressure Coupling Phase  
+- EII < 0.60 → **MONITORING** – Stable Hydrothermal Regime  
+
+---
+
+### 🛰️ Feeds & Sources
+- [NOAA SWPC](https://services.swpc.noaa.gov/)
+- [NASA DONKI CME API](https://api.nasa.gov/)
+- [INGV Italy FDSNWS](https://webservices.ingv.it/fdsnws/event/1/)
+- [USGS Backup Feeds](https://earthquake.usgs.gov/fdsnws/event/1/)
+
+---
+
+### 💻 Quick Start
+```bash
+git clone https://github.com/<your-username>/SunWolf_ReSunance_Continuum.git
+cd SunWolf_ReSunance_Continuum
+pip install -r requirements.txt
+streamlit run app.py
