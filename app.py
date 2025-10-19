@@ -123,6 +123,9 @@ def generate_forecast_wave(psi_s, hours=48):
 # MAIN DASHBOARD
 # ---------------------------------------------------------------
 st.set_page_config(layout="wide", page_title="SunWolf ReSunance Continuum")
+# Auto-refresh every 60 seconds (as per .env setting or default)
+REFRESH_INTERVAL = int(st.secrets.get("REFRESH_INTERVAL", 60))
+st_autorefresh(interval=REFRESH_INTERVAL * 1000, key="datarefresh")
 
 st.title("🛰️ SUPT :: SunWolf ReSunance Continuum v6.1")
 st.caption("Real-Time Volcanic-Solar Coupling Monitor for Campi Flegrei")
@@ -192,4 +195,5 @@ st.caption(f"Updated {dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')} | 
 st.caption("Powered by Sheppard’s Universal Proxy Theory — SunWolf Live Continuum")
 
 st_autorefresh = st.experimental_rerun
+
 
